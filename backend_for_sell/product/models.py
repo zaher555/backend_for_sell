@@ -11,7 +11,7 @@ class category(models.Model):
 class color(models.Model):
     def __str__(self):
         return self.color
-    color=models.CharField(max_length=50,blank=False,null=False)
+    colorName=models.CharField(max_length=50,blank=False,null=False)
 
 class product(models.Model):
     def __str__(self):

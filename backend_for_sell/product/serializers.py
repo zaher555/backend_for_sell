@@ -12,6 +12,7 @@ class colorSerializer(serializers.ModelSerializer):
         fields='__all__'
 
 class productSerializer(serializers.ModelSerializer):
+    color=colorSerializer(many=True)
     class Meta:
         model=product
         fields='__all__'
