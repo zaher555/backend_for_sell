@@ -4,3 +4,5 @@ from .models import *
 admin.site.register(category)
 admin.site.register(product)
 admin.site.register(color)
+admin.site.register(customer_rate)
+

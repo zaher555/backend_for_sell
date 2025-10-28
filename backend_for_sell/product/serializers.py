@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import *
+# from customer.serializers import *
 
 class cateorySerializer(serializers.ModelSerializer):
+    products = serializers.PrimaryKeyRelatedField(many=True,read_only=True)
     class Meta:
         model=category
-        fields='__all__'
+        fields=['id','title','productsNumber','products']
 
 class colorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,7 +14,14 @@ class colorSerializer(serializers.ModelSerializer):
         fields='__all__'
 
 class productSerializer(serializers.ModelSerializer):
-    color=colorSerializer(many=True)
+    # category = serializers.StringRelatedField() 
+    # color = serializers.StringRelatedField(many=True)
     class Meta:
         model=product
         fields='__all__'
+        depth=1
+
+# class customerRateSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=customer_rate
+#         fields = ['id', 'customer', 'product', 'rate']
